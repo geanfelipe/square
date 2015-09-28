@@ -1,0 +1,53 @@
+<ion-view title="Playlist">
+	<ion-header-bar></ion-header-bar>
+	<ion-content >
+		<ion-scroll delegate-handle="taskScroll" direction="y">
+		<div class="row"><div class="col col-offset-10"><h2>Praça {{praca.nome}}</h2> </div></div>
+		<ion-list>
+
+		  <a class="item item-icon-left" ui-sref="app.map">
+		    <i class="icon ion-ios-location"></i>
+		    <div>{{praca.localidade.logradouro}},nº {{praca.localidade.numero}}</div>
+		    <div>Bairro {{praca.localidade.bairro}}</div>
+		  </a>
+
+		  <a class="item item-icon-left item-icon-right" >
+		    <i class="icon ion-ios-lightbulb"></i>
+		    Ilumuninação
+		    <i ng-show="praca.iluminacao"class="icon ion-android-done"></i>
+		  </a>
+
+		  <a class="item item-icon-left item-icon-right" >
+		    <i class="icon ion-person-stalker"></i>
+		    Segurança
+		    <i ng-show="praca.seguranca"class="icon ion-android-done"></i>
+		  </a>
+
+		  <a class="item item-icon-left" >
+		    <i class="icon ion-information-circled"></i>
+		    Tipo 
+		    <span class="item-note">{{praca.tipo}}</span>
+		  </a>
+		  <a class="item item-icon-left" ng-click="popupEventos()">
+		    <i class="icon ion-calendar"></i>
+		    Eventos
+		  </a>
+			<div class="item item-divider">TRUCKS</div>
+			<div class="card" ng-repeat="truck in praca.trucks">
+				<div class="item item-divider"><h2>{{truck.nome}}</h2></div>
+		  		<a class="item item-icon-left" >
+				    <i class="icon ion-fork"></i>
+				    Especialidade
+				    <span class="item-note">{{truck.especialidade}}</span>
+			 	</a>
+			 	<a class="item item-icon-left" >
+				 <i class="icon ion-social-whatsapp"></i>
+				  Whatsapp
+				 <span class="item-note">{{truck.whatsapp}}</span>
+				</a>
+			</div>
+
+		</ion-list>
+		</ion-scroll>
+	</ion-content>
+</ion-view>

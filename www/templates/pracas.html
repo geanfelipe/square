@@ -1,0 +1,35 @@
+<ion-view >
+  <ion-header-bar >
+    <!-- <ion-nav-buttons side="left"> 
+      <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons> -->
+  </ion-header-bar>
+  
+  <ion-content >
+    
+    <div class="bar bar-header item-input-inset">
+        <label class="item-input-wrapper ">
+          <input type="search" placeholder="Encontrar praça" ng-model="query" >
+        <a class="button button-icon ion-ios-search" ng-model="query"  ui-sref="app.search({term:query})"></a>
+        </label>
+        <!-- <button class="button button-clear">Cancel</button> -->
+    </div>
+
+    <!-- <div class="list" ng-repeat="playlist in playlists" >
+        <div class="item item-divider" href="#/app/playlists/{{playlist.id}}"></div>
+        <div class="item item-divider">{{playlist.title}}</div>
+          <a class="item">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</a>
+        </div>
+    </div> -->
+    <ion-list >
+      <ion-item class="item item-thumbnail-left" ng-repeat="praca in pracas | filter : query" href="#/app/praca/{{praca.id}}">
+          <img src="img/ionic.png">
+        <h2>{{praca.nome}}</h2>
+        
+        <h2 >{{praca.localidade.logradouro}},nº {{praca.localidade.numero}}</h2>
+        <h2>Bairro {{praca.localidade.bairro}} </h2>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

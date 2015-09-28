@@ -1,0 +1,66 @@
+[
+	{
+		"nome":" Augusto Leite",
+		"id":1,
+		"localidade":{
+			"logradouro":"Rua das Mangueiras",
+			"numero":"6",
+			"bairro":"Nova Natal"
+		},
+		"iluminacao":true,
+		"seguranca":"nao",
+		"tipo":"passaggi",
+		"trucks":[
+			{"nome":"Molti","especialidade":"fast food","whatsapp":"98865-8997"},
+			{"nome":"Falmois","especialidade":"comida nordestina","whatsapp":"99865-8997"}
+		]
+	},
+	{
+		"nome":" Aristófanes Fernandes",
+		"id":2,
+		"localidade":{
+			"logradouro":"Avenida Praia da Pipa",
+			"numero":"66",
+			"bairro":"Ponta Negra"
+		},
+		"iluminacao":true,
+		"seguranca":true,
+		"tipo":"passaggi",
+		"trucks":[
+			{"nome":"Cosinha La plata","especialidade":"fast food","whatsapp":"99865-8997"},
+			{"nome":"Malbourn","especialidade":"comida nordestina","whatsapp":"99665-8997"}
+		]
+	},
+	{
+		"nome":" Luís Raimundo de Sousa",
+		"id":3,
+		"localidade":{
+			"logradouro":"Avenia Ayrton Sena",
+			"numero":"156",
+			"bairro":"Nova Parnamirim"
+		},
+		"iluminacao":true,
+		"seguranca":true,
+		"tipo":"passaggi",
+		"trucks":[
+			{"nome":"Molti","especialidade":"comida japonesa","whatsapp":"98865-8997"},
+			{"nome":"Falmois","especialidade":"fast food","whatsapp":"99865-8997"}
+		]
+	},
+	{
+		"nome":" Mestre Francisco Valentini",
+		"id":4,
+		"localidade":{
+			"logradouro":"Avenida Amintas Barros ",
+			"numero":"78",
+			"bairro":"Petrópolis"
+		},
+		"iluminacao":true,
+		"seguranca":true,
+		"tipo":"passaggi",
+		"trucks":[
+			{"nome":"Molti","especialidade":"comida macarrao","whatsapp":"98865-8997"},
+			{"nome":"Falmois","especialidade":"comida nordestina","whatsapp":"99865-8997"}
+		]
+	}
+]

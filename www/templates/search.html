@@ -1,0 +1,21 @@
+<ion-view title="Search">
+  <ion-header-bar></ion-header-bar>
+  <ion-content >
+    <ion-scroll delegate-handle="taskScroll" direction="y">
+    	<div class="row"><div class="col col-offset-10"><h2>{{filter}}Pesquisa  {{search}}</h2> </div></div>
+    	<div class="radios">
+	    	<ion-radio ng-model="filtro" ng-value="'Praca'">Praca</ion-radio>
+			<ion-radio ng-model="filtro" ng-value="'Truck'">Truck</ion-radio>
+		</div>
+    	<ion-list >
+      		<ion-item class="item item-thumbnail-left" ng-repeat="praca in data | filter : filtro" href="#/app/praca/{{praca.id}}">
+          <img src="img/ionic.png">
+        <h2>{{praca.nome}}</h2>
+        
+        <h2 >{{praca.localidade.logradouro}},nº {{praca.localidade.numero}}</h2>
+        <h2>Bairro {{praca.localidade.bairro}} </h2>
+      </ion-item>
+    </ion-list>
+    </ion-scroll>
+  </ion-content>
+</ion-view>
