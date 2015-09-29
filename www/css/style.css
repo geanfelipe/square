@@ -1,4 +1,23 @@
+html {
+  box-sizing: border-box;
+}
+html * {
+  box-sizing: inherit;
+}
+ion-scroll[direction=x] {
+  width: 100vw;
+}
+ion-scroll[direction=y] {
+  height: calc(100vh - 33px - 33px - 90px - 15px);
+}
+body > header,
+ion-footer-bar {
+  height: 33px;
+}
 
+ {
+    overflow:scroll;
+}
 .bar.bar-header.disable-user-behavior{
     width: 100%;
     height: 18%; 
@@ -9,38 +28,14 @@
     padding-right: 0px;
     padding-bottom: 0px;
     padding-left: 0px;
-    /*background-color:  #F6F5DE;*/
-    /*background-color:  #E0AA74;*/
     background-color:  #B9D2FC;
-
 }
 .scroll-content.ionic-scroll{
     width: 100%;
     height: 100%; 
     top: 18%;
-    
 }
-
-/*.item.item-divider{
-    background-color: #B9D2FC;
-    border-color: #B9D2FC;
-}*/
-html {
-  box-sizing: border-box;
-}
-html * {
-  box-sizing: inherit;
-}
-ion-scroll[direction=x] {
-  width: 100vw;
-}
-ion-scroll[delegate-handle=calendarScroll] {
-  height: 90px;
-}
-ion-scroll[direction=y] {
-  height: calc(105vh - 33px - 33px - 90px - 15px);
-}
-body > header,
-ion-footer-bar {
-  height: 33px;
+.scroll {
+  transform: translate3d(0px, 0px, 0px) scale(1);
+  height: 100%;
 }

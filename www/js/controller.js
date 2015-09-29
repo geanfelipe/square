@@ -30,16 +30,35 @@ angular.module('Controllers', [])
 	}
 })
 
-.controller('Pracas', function($scope,$http,PracasFactory) {
+.controller('Pracas', function($scope,PracasFactory,$ionicPopup,$state) {
+	$scope.filtro ={};
+	$scope.search = {search: '',typesearch: ''}
 	PracasFactory.success(function(data){
 		$scope.pracas = data;
 	});
-	// $http.get('js/pracas.json').success(function(data){
- //            $scope.pracas = data;
- //    });
+	$scope.searchOption = function(){
+		$ionicPopup.show({
+            title:"Opçoes de busca" ,
+            template:'<div class="radios"><ion-radio ng-model="search.typesearch" ng-value="' + "'Pracas'"+'">Por praca</ion-radio><ion-radio ng-model="search.typesearch" ng-value="'+"'Trucks'"+'">Por truck</ion-radio></div>',
+                // templateUrl: '/pages/selectData.html',
+            scope: $scope,
+            buttons:[
+            {'text':'Ok',
+            onTap : function(e){
+            	$scope.search.search=null;
+            	$state.go('search',{typesearch:$scope.search.typesearch,term:$scope.search.search});
+            }},
+            {'text':'Cancel'}
+            
+            ]
+        });
+	}
+	
 })
 
-.controller('PracaDetail', function($scope, $stateParams,PracasFactory,$ionicPopup) {
+.controller('PracaDetail', function($scope, $stateParams,PracasFactory,$ionicPopup,$ionicScrollDelegate) {
+	var a = $ionicScrollDelegate.scrollTop();
+	console.log(a);
 	var id = $stateParams.id;
 	PracasFactory.success(function(data){
 		$scope.praca = data[id-1];
@@ -60,9 +79,12 @@ angular.module('Controllers', [])
 	}
 })
 
-.controller("Search",function($scope,$stateParams){
-	$scope.filtro = "";
-	$scope.data = [
+.controller("Search",function($scope,$stateParams,$filter){
+	$scope.search = $stateParams.term;
+	$scope.typesearch = $stateParams.typesearch;
+	console.log($scope.typesearch ,$scope.search);
+	
+	$scope.pracas = [
 	{
 		"tipo":"Praca",
 		"nome":" Mestre Francisco Valentini",
@@ -102,7 +124,8 @@ angular.module('Controllers', [])
 			"numero":"6",
 			"bairro":"Nova Natal"
 		},
-	},
+	}]
+	$scope.trucks =[
 	{	
 		"tipo":"Truck",
 		"id":3,
@@ -142,6 +165,10 @@ angular.module('Controllers', [])
 			"numero":"6",
 			"bairro":"Nova Natal"
 		},
-	}
-	];
+	}];
+	var objarray = $scope.typesearch=="Pracas" ? $scope.pracas : $scope.trucks;
+	$scope.result = $filter('filter')(objarray, $scope.search);
+	if($scope.result.length) $scope.zero = false;
+	else{ $scope.zero = true;}
+	
 })

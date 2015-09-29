@@ -5,6 +5,7 @@
     "ionic": "driftyco/ionic-bower#1.1.0"
   },
   "dependencies": {
+    "angular-google-maps": "~2.2.1",
     "ng-resource": "~0.0.2"
   }
 }

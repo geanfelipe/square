@@ -21,63 +21,30 @@ angular.module('starter', ['ionic','Controllers','jett.ionic.filter.bar','Factor
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-    .state('app', {
-      url: "/app",
-      abstract: true,
-      templateUrl: "templates/menu.html",
-      controller: 'AppCtrl'
+    .state('search', {
+      url: "/search/:typesearch/:term",
+      templateUrl: "templates/search.html",
+      controller: "Search"
     })
 
-    .state('app.search', {
-      url: "/search/:term",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/search.html",
-          controller: "Search"
-        }
-      }
-    })
-
-    .state('app.browse', {
-      url: "/browse",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/browse.html"
-        }
-      }
-    })
-    .state('app.pracas', {
+    .state('pracas', {
       url: "/pracas",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/pracas.html",
-          controller: 'Pracas'
-        }
-      }
+      templateUrl: "templates/pracas.html",
+      controller: 'Pracas'
     })
-
-    .state('app.praca', {
+    
+    .state('praca', {
       url: "/praca/:id",
-      views: {
-        'menuContent' :{
-          templateUrl:"templates/praca.html",
-          controller: 'PracaDetail'
-        }
-      }
+      templateUrl:"templates/praca.html",
+      controller: 'PracaDetail'
     })
 
-    .state('app.map', {
+    .state('map', {
       url: "/map/",
-      views: {
-        'menuContent' :{
-          templateUrl:"templates/map.html",
-          controller: 'Map'
-        }
-      }
+      templateUrl:"templates/map.html",
+      controller: 'Map'
     })
-
-
     ;
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/pracas');
+  $urlRouterProvider.otherwise('/pracas');
 });
